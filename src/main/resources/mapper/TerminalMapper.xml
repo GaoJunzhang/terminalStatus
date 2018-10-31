@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.seeyoo.mapper.TerminalMapper" >
+  <resultMap id="BaseResultMap" type="com.seeyoo.model.Terminal" >
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="tgroup_id" property="tgroupId" jdbcType="INTEGER" />
+    <result column="mac" property="mac" jdbcType="VARCHAR" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="server_ip" property="serverIp" jdbcType="VARCHAR" />
+    <result column="server_mac" property="serverMac" jdbcType="VARCHAR" />
+    <result column="dev" property="dev" jdbcType="VARCHAR" />
+    <result column="cpu" property="cpu" jdbcType="VARCHAR" />
+    <result column="memory" property="memory" jdbcType="VARCHAR" />
+    <result column="disk" property="disk" jdbcType="VARCHAR" />
+    <result column="layout_name" property="layoutName" jdbcType="VARCHAR" />
+    <result column="volume" property="volume" jdbcType="INTEGER" />
+    <result column="osd_password" property="osdPassword" jdbcType="VARCHAR" />
+    <result column="conn_server_addr" property="connServerAddr" jdbcType="VARCHAR" />
+    <result column="dwn_server_addr" property="dwnServerAddr" jdbcType="VARCHAR" />
+    <result column="timing" property="timing" jdbcType="VARCHAR" />
+    <result column="day" property="day" jdbcType="VARCHAR" />
+    <result column="week" property="week" jdbcType="VARCHAR" />
+    <result column="holiday" property="holiday" jdbcType="VARCHAR" />
+    <result column="protocol" property="protocol" jdbcType="VARCHAR" />
+    <result column="version" property="version" jdbcType="VARCHAR" />
+    <result column="system_version" property="systemVersion" jdbcType="VARCHAR" />
+    <result column="imd_update_time" property="imdUpdateTime" jdbcType="TIMESTAMP" />
+    <result column="connect_status" property="connectStatus" jdbcType="TINYINT" />
+    <result column="connect_time" property="connectTime" jdbcType="TIMESTAMP" />
+    <result column="disconnect_time" property="disconnectTime" jdbcType="TIMESTAMP" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="remark" property="remark" jdbcType="LONGVARCHAR" />
+  </resultMap>
+</mapper>

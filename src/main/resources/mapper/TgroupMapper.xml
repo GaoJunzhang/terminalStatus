@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.seeyoo.mapper.TgroupMapper">
+    <resultMap id="BaseResultMap" type="com.seeyoo.model.Tgroup">
+        <!--
+          WARNING - @mbg.generated
+        -->
+        <id column="id" property="id" jdbcType="INTEGER"/>
+        <result column="user_id" property="userId" jdbcType="INTEGER"/>
+        <result column="tgroup_id" property="tgroupId" jdbcType="INTEGER"/>
+        <result column="name" property="name" jdbcType="VARCHAR"/>
+        <result column="lev" property="lev" jdbcType="INTEGER"/>
+        <result column="code" property="code" jdbcType="VARCHAR"/>
+        <result column="create_time" property="createTime" jdbcType="TIMESTAMP"/>
+        <result column="remark" property="remark" jdbcType="LONGVARCHAR"/>
+    </resultMap>
+    <select id="selectAllGroup" resultType="com.seeyoo.model.Tgroup">
+        select * from tgroup where 1=1
+        <foreach item="item" collection="code" open="(" separator="," close=")">
+            and code LIKE CONCAT('',#{item},'%')
+        </foreach>
+    </select>
+</mapper>

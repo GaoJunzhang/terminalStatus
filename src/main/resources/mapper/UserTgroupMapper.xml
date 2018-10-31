@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.seeyoo.mapper.UserTgroupMapper">
+    <resultMap id="BaseResultMap" type="com.seeyoo.model.UserTgroup">
+        <!--
+          WARNING - @mbg.generated
+        -->
+        <id column="id" property="id" jdbcType="BIGINT"/>
+        <result column="user_id" property="userId" jdbcType="INTEGER"/>
+        <result column="tgroup_id" property="tgroupId" jdbcType="INTEGER"/>
+    </resultMap>
+    <resultMap id="UserTgroupResultMap" type="com.seeyoo.bean.UserTgroupBean">
+        <id column="id" property="id" jdbcType="BIGINT"/>
+        <result column="user_id" property="userId" jdbcType="INTEGER"/>
+        <result column="tgroup_id" property="tgroupId" jdbcType="INTEGER"/>
+        <association property="tgroup" javaType="com.seeyoo.model.Tgroup">
+            <id column="id" property="id" jdbcType="INTEGER"/>
+            <result column="user_id" property="userId" jdbcType="INTEGER"/>
+            <result column="tgroup_id" property="tgroupId" jdbcType="INTEGER"/>
+            <result column="name" property="name" jdbcType="VARCHAR"/>
+            <result column="lev" property="lev" jdbcType="INTEGER"/>
+            <result column="code" property="code" jdbcType="VARCHAR"/>
+            <result column="create_time" property="createTime" jdbcType="TIMESTAMP"/>
+            <result column="remark" property="remark" jdbcType="LONGVARCHAR"/>
+        </association>
+    </resultMap>
+    <select id="selectByUid" parameterType="int" resultType="com.seeyoo.model.UserTgroup">
+    SELECT * FROM user_tgroup where user_id = #{userId}
+  </select>
+    <select id="queryUserTgroupByUserId" parameterType="int" resultMap="UserTgroupResultMap">
+      SELECT t.*,t1.name ,t1.code,t1.lev,t1.remark,t1.create_time from user_tgroup t,tgroup t1 where t.tgroup_id=t1.id and t.user_id=#{userId}
+    </select>
+</mapper>
